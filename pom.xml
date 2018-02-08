@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>org.lexus-rpc</groupId>
+  <artifactId>lexus</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <packaging>pom</packaging>
+
+  <name>lexus</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <modules>
+        <module>lexus-common</module>
+        <module>lexus-example</module>
+        <module>lexus-serialization</module>
+        <module>lexus-transport</module>
+        <module>lexus-registry</module>
+        <module>lexus-rpc</module>
+  </modules>
+
+  <dependencyManagement>
+      <dependencies>
+
+      </dependencies>
+  </dependencyManagement>
+
+  <build>
+      <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.1</version>
+            <configuration>
+              <source>1.8</source>
+              <target>1.8</target>
+            </configuration>
+          </plugin>
+      </plugins>
+  </build>
+
+  <developers>
+      <developer>
+          <name>xingdong2015</name>
+          <email>xingdong2015@gmail.com</email>
+      </developer>
+      <developer>
+          <name>tkzandtkz</name>
+          <email>tkzandtkz@gmail.com</email>
+      </developer>
+  </developers>
+</project>
