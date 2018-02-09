@@ -1,6 +1,8 @@
 package org.lexus.rpc;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class DefaultLResponse implements Serializable, LResponse {
 
@@ -9,6 +11,7 @@ public class DefaultLResponse implements Serializable, LResponse {
     private Object value;
     private Exception exception;
     private long requestId;
+    private Map<String, String> attachments = new HashMap<>();
     private long processTime;
     private int timeout;
 
@@ -54,5 +57,24 @@ public class DefaultLResponse implements Serializable, LResponse {
     @Override
     public int getTimeout() {
         return 0;
+    }
+
+    @Override
+    public Map<String, String> getAttachments() {
+        return attachments;
+    }
+
+    @Override
+    public String getAttachment(String key) {
+        return attachments.get(key);
+    }
+
+    @Override
+    public String getAttachment(String key, String defaultValue) {
+        String value = attachments.get(key);
+        if (value == null || value.length() == 0){
+            value = defaultValue;
+        }
+        return value;
     }
 }

@@ -1,6 +1,7 @@
 package org.lexus.rpc;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -15,7 +16,7 @@ public class DefaultLRequest implements Serializable, LRequest {
     private String interfaceName;
     private String methodName;
     private Object[] arguments;
-
+    private Map<String, String> attachments = new HashMap<>();
     private long requestId;
 
     @Override
@@ -45,11 +46,20 @@ public class DefaultLRequest implements Serializable, LRequest {
 
     @Override
     public String getAttachment(String key) {
-        return null;
+        return attachments.get(key);
     }
 
     @Override
     public String getAttachment(String key, String defaultValue) {
-        return null;
+        String result = attachments.get(key);
+        if (result == null || result.length() == 0){
+            result = defaultValue;
+        }
+        return result;
+    }
+
+
+    public void setAttachments(String key, String value){
+        attachments.put(key, value);
     }
 }

@@ -1,5 +1,7 @@
 package org.lexus.rpc;
 
+import java.util.Map;
+
 /**
  * Response
  * @author Administrator
@@ -37,6 +39,30 @@ public interface LResponse {
      * @param time
      */
     void setProcessTime(long time);
+
+    /**
+     * 获取attachments
+     * @return
+     */
+    Map<String, String> getAttachments();
+
+    /**
+     * 根据key获取attachment
+     * @param key
+     * @return
+     */
+    String getAttachment(String key);
+
+    /**
+     * 根据key获取attachment，若key==null或者key.length==0的话
+     * 返回defaultValue
+     * @param key
+     * @param defaultValue
+     * @return
+     */
+    String getAttachment(String key, String defaultValue);
+
+
 
     int getTimeout();
 }
