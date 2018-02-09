@@ -13,5 +13,11 @@
     <name>lexus-serialization</name>
     <url>http://maven.apache.org</url>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
