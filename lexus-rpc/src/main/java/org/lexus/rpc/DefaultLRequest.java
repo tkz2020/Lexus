@@ -1,6 +1,7 @@
 package org.lexus.rpc;
 
 import java.io.Serializable;
+import java.util.Map;
 
 
 /**
@@ -35,5 +36,20 @@ public class DefaultLRequest implements Serializable, LRequest {
     @Override
     public long getRequestId() {
         return 0;
+    }
+
+    @Override
+    public Map<String, String> getAttachments() {
+        return null;
+    }
+
+    @Override
+    public String getAttachment(String key) {
+        return null;
+    }
+
+    @Override
+    public String getAttachment(String key, String defaultValue) {
+        return null;
     }
 }
