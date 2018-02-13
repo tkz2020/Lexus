@@ -3,7 +3,7 @@ lexus-rpc（一个新手练习的RPC项目）
 
 第一阶段的目标：
 
-1、注册中心（zookeeper 实现的API是curator,可参考Jupiter的实现）
+1、注册中心（zookeeper 实现的API是curator,可参考Jupiter的实现,注册中心可选redis或者zookeeper或者本地注册）
 
 2、序列化（java  hessian  fastjson  protobuf   kryo）
 
