@@ -1,7 +1,12 @@
 package org.lexus.rpc.serialization;
 
+import io.protostuff.LinkedBuffer;
+import io.protostuff.Schema;
+import io.protostuff.runtime.RuntimeSchema;
 import org.lexus.rpc.serialization.hessian.Hessian2Serialization;
 import org.lexus.rpc.serialization.java.JavaSerialization;
+import org.lexus.rpc.serialization.protostuff.ProtoStuffSerialization;
+import sun.awt.image.ImageWatched;
 
 import java.io.Serializable;
 
@@ -93,7 +98,20 @@ public class TestMain {
     }
 
 
+    private static void testProtoStuffSerialize(){
+        ProtoStuffSerialization protoStuffSerialization = new ProtoStuffSerialization();
+
+        byte[] bytes = protoStuffSerialization.serialize(new Student(1001, "zhangsan", 27, "beijing"));
+
+        Student student = protoStuffSerialization.deserialize(bytes, Student.class);
+
+        System.out.println(student);
+    }
+
+
     public static void main(String[] args) {
-        testJavaSerialize();
+        //testJavaSerialize();
+
+        testProtoStuffSerialize();
     }
 }
