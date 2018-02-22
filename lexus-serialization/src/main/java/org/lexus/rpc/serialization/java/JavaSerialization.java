@@ -1,5 +1,6 @@
 package org.lexus.rpc.serialization.java;
 
+import org.lexus.rpc.common.utils.LoggerUtil;
 import org.lexus.rpc.serialization.api.Serialization;
 
 import java.io.*;
@@ -21,7 +22,7 @@ public class JavaSerialization extends Serialization{
             output.flush();
             return bos.toByteArray();
         } catch (IOException e) {
-            e.printStackTrace();
+            LoggerUtil.error("java serialize exception :{}", e);
         }
         return new byte[0];
     }
@@ -33,10 +34,8 @@ public class JavaSerialization extends Serialization{
             input = new ObjectInputStream(new ByteArrayInputStream(data));
             Object obj = input.readObject();
             return clz.cast(obj);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            LoggerUtil.error("java deserialize exception :{}", e);
         }
         return null;
     }
