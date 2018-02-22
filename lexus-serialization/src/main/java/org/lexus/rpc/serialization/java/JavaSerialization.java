@@ -1,4 +1,43 @@
 package org.lexus.rpc.serialization.java;
 
-public class JavaSerialization {
+import org.lexus.rpc.serialization.api.Serialization;
+
+import java.io.*;
+
+/**
+ * Java实现序列化&&反序列化
+ * @author tukangzheng
+ *
+ */
+public class JavaSerialization extends Serialization{
+
+    @Override
+    public <T> byte[] serialize(T obj) {
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        ObjectOutputStream output = null;
+        try {
+            output = new ObjectOutputStream(bos);
+            output.writeObject(obj);
+            output.flush();
+            return bos.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new byte[0];
+    }
+
+    @Override
+    public <T> T deserialize(byte[] data, Class<T> clz) {
+        ObjectInputStream input = null;
+        try {
+            input = new ObjectInputStream(new ByteArrayInputStream(data));
+            Object obj = input.readObject();
+            return clz.cast(obj);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
