@@ -1,6 +1,7 @@
 package org.lexus.rpc.serialization;
 
 import org.lexus.rpc.serialization.hessian.Hessian2Serialization;
+import org.lexus.rpc.serialization.java.JavaSerialization;
 
 import java.io.Serializable;
 
@@ -68,7 +69,8 @@ public class TestMain {
         }
     }
 
-    public static void main(String[] args) {
+
+    private static void testHessian2Serialize(){
         Hessian2Serialization hessian = new Hessian2Serialization();
         // 序列化
         byte[] bytes = hessian.serialize(new Student(1001, "zhangsan", 27, "beijing"));
@@ -77,5 +79,21 @@ public class TestMain {
         Student student = hessian.deserialize(bytes, Student.class);
 
         System.out.println(student);
+    }
+
+
+    private static void testJavaSerialize(){
+        JavaSerialization javaSerialization = new JavaSerialization();
+
+        byte[] bytes = javaSerialization.serialize(new Student(1001, "zhangsan", 27, "beijing"));
+
+        Student student = javaSerialization.deserialize(bytes, Student.class);
+
+        System.out.println(student);
+    }
+
+
+    public static void main(String[] args) {
+        testJavaSerialize();
     }
 }
