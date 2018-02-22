@@ -21,10 +21,14 @@ public class DefaultLogService implements LoggerService {
         trace.trace(msg);
     }
 
-
     @Override
     public void trace(String msg, Throwable e) {
         trace.trace(msg, e);
+    }
+
+    @Override
+    public void trace(String format, Object... argArray) {
+        trace.trace(format, argArray);
     }
 
     @Override
@@ -38,6 +42,12 @@ public class DefaultLogService implements LoggerService {
         debug.debug(msg, e);
     }
 
+
+    @Override
+    public void debug(String format, Object... argArray) {
+
+    }
+
     @Override
     public void info(String msg) {
         info.info(msg);
@@ -47,6 +57,12 @@ public class DefaultLogService implements LoggerService {
     @Override
     public void info(String msg, Throwable e) {
         info.info(msg, e);
+    }
+
+
+    @Override
+    public void info(String format, Object... argArray) {
+        info.info(format, argArray);
     }
 
     @Override
@@ -60,6 +76,12 @@ public class DefaultLogService implements LoggerService {
         warn.warn(msg, e);
     }
 
+
+    @Override
+    public void warn(String format, Object... argArray) {
+        warn.warn(format, argArray);
+    }
+
     @Override
     public void error(String msg) {
         error.error(msg);
@@ -70,6 +92,13 @@ public class DefaultLogService implements LoggerService {
     public void error(String msg, Throwable e) {
         error.error(msg, e);
     }
+
+
+    @Override
+    public void error(String format, Object... argArray) {
+        error.error(format, argArray);
+    }
+
 
     @Override
     public boolean isTraceEnabled() {

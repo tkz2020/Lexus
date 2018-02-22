@@ -2,6 +2,7 @@ package org.lexus.rpc.serialization.hessian;
 
 import com.caucho.hessian.io.Hessian2Input;
 import com.caucho.hessian.io.Hessian2Output;
+import org.lexus.rpc.common.utils.LoggerUtil;
 import org.lexus.rpc.serialization.api.Serialization;
 
 import java.io.ByteArrayInputStream;
@@ -23,7 +24,7 @@ public class Hessian2Serialization extends Serialization {
             out.flush();
             return bos.toByteArray();
         } catch (IOException e){
-
+            LoggerUtil.error("hessian2 serialize exception :{}", e);
         }
         return null;
     }
@@ -36,7 +37,7 @@ public class Hessian2Serialization extends Serialization {
             T object = (T) input.readObject(clz);
             return object;
         } catch (IOException e){
-
+            LoggerUtil.error("hessian2 deserialize exception :{}", e);
         }
         return null;
     }
