@@ -32,6 +32,7 @@
         <module>lexus-transport</module>
         <module>lexus-registry</module>
         <module>lexus-rpc</module>
+      <module>lexus-spring-support</module>
   </modules>
 
   <dependencyManagement>
@@ -161,6 +162,12 @@
               <version>${curator.version}</version>
           </dependency>
           <!-- :) zookeeper dependency end-->
+
+          <dependency>
+              <groupId>org.springframework</groupId>
+              <artifactId>spring-context</artifactId>
+              <version>${spring-framework.version}</version>
+          </dependency>
 
       </dependencies>
   </dependencyManagement>
