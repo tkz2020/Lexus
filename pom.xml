@@ -12,7 +12,7 @@
   <url>http://maven.apache.org</url>
 
   <properties>
-      <netty.version>4.1.19.Final</netty.version>
+      <netty.version>4.1.42.Final</netty.version>
       <hessian.version>4.0.38</hessian.version>
       <kryo.version>2.23.0</kryo.version>
       <protostuff.version>1.6.0</protostuff.version>
